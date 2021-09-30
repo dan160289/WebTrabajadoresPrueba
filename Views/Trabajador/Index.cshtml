@@ -1,0 +1,107 @@
+﻿@model WebTrabajadoresPrueba.Models.Trabajador
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Listado de trabajadores</h2>
+
+<div class="col-3 text-left">
+    <button type="button" class="btn btn-info form-control" data-toggle="modal" data-target="#mymodal">Nuevo Registro</button>
+</div>
+
+<div class="row" style="width:100%;">
+    
+    <div class="modal fade" id="mymodal" role="dialog">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <h2 class="text-primary text-left">Ingreso de trabajadores</h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div style="padding-left:15%;padding-right:15%;padding-bottom:30%;">
+                            <div class="row p-3 border-0">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            </div>
+                            <div class="form-row">
+                                <label>Tipo Documento</label>
+                                <div class="form-group col-md-4">
+                                    <select name="tipo" class="form-control">
+                                        <option selected>--Seleccione--</option>
+                                        <option value="">DNI</option>
+                                        <option value="">CEX</option>
+                                        <option value="">PAS</option>
+                                    </select>
+                                    <span asp-validation-for="Tipo" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label>N° Documento</label>
+                                <div class="form-group col-md-6">
+                                    <input asp-for="Numero" class="form-control" placeholder=" ejm: 45978676" />
+                                    <span asp-validation-for="Numero" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label>Nombres</label>
+                                <div class="form-group col-md-6">
+                                    <input asp-for="Nombres" class="form-control" placeholder=" ejm: Dandy Rufino" />
+                                    <span asp-validation-for="Nombres" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label>Sexo</label>
+                                    <div class="form-group col-md-6">
+                                        <input type="radio" asp-for="Sexo" value="sexo" />
+                                        <label>Masculino</label>
+                                        <input type="radio" asp-for="Sexo" value="sexo" />
+                                        <label>Femenino</label>
+                                    </div>
+                            </div>
+                            <div class="form-row">
+                                <label>Departamento</label>
+                                <div class="form-group col-md-6">
+                                    <select name="departamento" class="form-control">
+                                        <option selected>--Seleccione departamento--</option>
+                                        <option value=""></option>
+                                    </select>
+                                    <span asp-validation-for="IdDep" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label>Provincia</label>
+                                <div class="form-group col-md-6">
+                                    <select name="provincia" class="form-control">
+                                        <option selected>--Seleccione provincia--</option>
+                                        <option value=""></option>
+                                    </select>
+                                    <span asp-validation-for="IdPro" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label>Distrito</label>
+                                <div class="form-group col-md-6">
+                                    <select name="distrito" class="form-control">
+                                        <option selected>--Seleccione distrito--</option>
+                                        <option value=""></option>
+                                    </select>
+                                    <span asp-validation-for="IdDis" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-outline-success">Grabar</button>
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
